@@ -1,0 +1,10 @@
+=== Starting benchmark for candidate: baseline ===
+Started at: 2026-10-18T10:42:17.888066+00:00
+Parameters: interval=1, res=native, roi=full_frame
+
+Benchmark finished successfully.
+Frames processed: 300
+FPS: 15.19
+p50 Latency (ms): 34.88
+p95 Latency (ms): 123.07
+Mean Confidence: 0.703

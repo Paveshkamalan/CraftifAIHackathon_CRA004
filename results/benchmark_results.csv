@@ -1,0 +1,4 @@
+candidate_id,frames_processed,elapsed_seconds,fps,p50_latency_ms,p95_latency_ms,mean_confidence,detection_count,gpu_utilization_percent,gpu_memory_used_mb,cpu_utilization_percent,memory_used_mb,started_at,ended_at,status,error
+baseline,300,19.745,15.19,34.88,123.07,0.703,3000,31.0,912.0,52.7,14414.7,2026-10-18T10:42:17.888066+00:00,2026-10-18T10:42:38.476865+00:00,success,
+balanced,300,20.936,14.33,46.97,132.55,0.696,3000,34.0,895.0,52.4,14389.4,2026-10-18T10:42:38.572587+00:00,2026-10-18T10:43:00.508177+00:00,success,
+fast,300,29.983,10.01,60.73,135.15,0.6936,3000,47.0,892.0,46.4,15035.5,2026-10-18T10:43:00.625856+00:00,2026-10-18T10:43:37.156624+00:00,success,

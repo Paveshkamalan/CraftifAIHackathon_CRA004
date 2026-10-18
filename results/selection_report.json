@@ -1,0 +1,99 @@
+{
+  "project": "AdaPipe",
+  "use_case": "person_detection_entry",
+  "input_video": "demo/sample_video.mp4",
+  "slo": {
+    "min_fps": 15,
+    "max_p95_latency_ms": 250,
+    "min_detection_confidence": 0.45
+  },
+  "candidates_evaluated": [
+    {
+      "candidate_id": "baseline",
+      "status": "success",
+      "fps": 15.19,
+      "fps_ok": true,
+      "p95_latency_ms": 123.07,
+      "latency_ok": true,
+      "mean_confidence": 0.703,
+      "quality_ok": true,
+      "slo_status": "SLO_MET",
+      "violation_score": 0.0,
+      "inference_interval": 1,
+      "resolution": "native",
+      "roi_mode": "full_frame"
+    },
+    {
+      "candidate_id": "balanced",
+      "status": "success",
+      "fps": 14.33,
+      "fps_ok": false,
+      "p95_latency_ms": 132.55,
+      "latency_ok": true,
+      "mean_confidence": 0.696,
+      "quality_ok": true,
+      "slo_status": "SLO_UNMET",
+      "violation_score": 0.0447,
+      "inference_interval": 2,
+      "resolution": [
+        960,
+        540
+      ],
+      "roi_mode": "full_frame"
+    },
+    {
+      "candidate_id": "fast",
+      "status": "success",
+      "fps": 10.01,
+      "fps_ok": false,
+      "p95_latency_ms": 135.15,
+      "latency_ok": true,
+      "mean_confidence": 0.6936,
+      "quality_ok": true,
+      "slo_status": "SLO_UNMET",
+      "violation_score": 0.3327,
+      "inference_interval": 3,
+      "resolution": [
+        640,
+        360
+      ],
+      "roi_mode": "full_frame"
+    }
+  ],
+  "selected_candidate": {
+    "id": "baseline",
+    "inference_interval": 1,
+    "resolution": "native",
+    "roi_mode": "full_frame",
+    "metrics": {
+      "candidate_id": "baseline",
+      "frames_processed": 300,
+      "elapsed_seconds": 19.745,
+      "fps": 15.19,
+      "p50_latency_ms": 34.88,
+      "p95_latency_ms": 123.07,
+      "mean_confidence": 0.703,
+      "detection_count": 3000,
+      "gpu_utilization_percent": 31.0,
+      "gpu_memory_used_mb": 912.0,
+      "cpu_utilization_percent": 52.7,
+      "memory_used_mb": 14414.7,
+      "started_at": "2026-10-18T10:42:17.888066+00:00",
+      "ended_at": "2026-10-18T10:42:38.476865+00:00",
+      "status": "success",
+      "error": null
+    },
+    "slo_status": "SLO_MET",
+    "violation_score": 0.0
+  },
+  "selection_reason": "Candidate 'baseline' meets all SLO requirements (FPS: 15.19 >= 15, p95: 123.07ms <= 250ms, confidence: 0.703 >= 0.45) and achieves highest detection quality.",
+  "overall_slo_status": "SLO_MET",
+  "limitations": [
+    "The MVP uses one input video and one detection model.",
+    "Runtime adaptation is limited to inference interval and ROI mode changes.",
+    "GPU metrics are recorded when nvidia-smi is available; otherwise recorded as null.",
+    "INT8 precision is reserved for calibrated TensorRT targets; FP16 / FP32 used on local GPU.",
+    "ESP32 BLE event source is simulated in this software-only MVP per FirmGen_XX schema."
+  ],
+  "generated_at": "2026-10-18T10:43:37.296743+00:00"
+}
