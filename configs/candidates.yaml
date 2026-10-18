@@ -1,0 +1,18 @@
+candidates:
+  - id: "baseline"
+    inference_interval: 1
+    resolution: "native"
+    roi_mode: "full_frame"
+    pipegen_config_path: "pipegen_output/generated_pipeline/config.yaml"
+
+  - id: "balanced"
+    inference_interval: 2
+    resolution: [960, 540]
+    roi_mode: "full_frame"
+    pipegen_config_path: "pipegen_output/generated_pipeline/config.yaml"
+
+  - id: "fast"
+    inference_interval: 3
+    resolution: [640, 360]
+    roi_mode: "full_frame"
+    pipegen_config_path: "pipegen_output/generated_pipeline/config.yaml"

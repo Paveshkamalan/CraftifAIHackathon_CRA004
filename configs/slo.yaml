@@ -1,0 +1,32 @@
+project:
+  name: "AdaPipe"
+  version: "1.0.0"
+  track: "CraftifAI_Physical_AI_Hackathon_Track_A"
+
+use_case:
+  name: "person_detection_entry"
+  description: "Detect people in an entry-area video stream."
+  input_video: "demo/sample_video.mp4"
+  high_load_video: "demo/high_load_video.mp4"
+
+slo:
+  min_fps: 15
+  max_p95_latency_ms: 250
+  min_detection_confidence: 0.45
+
+benchmark:
+  duration_seconds: 45
+  warmup_seconds: 5
+  metric_window_seconds: 5
+
+runtime_policy:
+  degrade_after_violations: 3
+  recover_after_success_windows: 5
+  recovery_latency_ratio: 0.7
+  quality_drop_revert_threshold: 0.20
+
+output:
+  benchmark_csv: "results/benchmark_results.csv"
+  selection_json: "results/selection_report.json"
+  adaptation_log: "results/adaptation_log.jsonl"
+  report_md: "results/selection_report.md"
