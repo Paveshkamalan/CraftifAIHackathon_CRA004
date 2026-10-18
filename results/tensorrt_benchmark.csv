@@ -1,0 +1,4 @@
+precision_mode,compilation_status,engine_size_bytes,avg_latency_ms,p50_latency_ms,p95_latency_ms,p99_latency_ms,fps,gpu_utilization_percent,gpu_memory_used_mb,cpu_utilization_percent,notes
+FP32,compilation_halted_missing_nvidia_gpu,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Execution halted: host lacks NVIDIA GPU/CUDA/TensorRT toolchain.
+FP16,compilation_halted_missing_nvidia_gpu,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Execution halted: host lacks NVIDIA GPU/CUDA/TensorRT toolchain.
+INT8,compilation_halted_missing_calibration_and_nvidia_gpu,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Execution halted: requires representative calibration cache and NVIDIA Tensor Cores.
