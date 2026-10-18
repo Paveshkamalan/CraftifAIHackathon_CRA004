@@ -1,0 +1,497 @@
+﻿{
+    "metadata":  {
+                     "project":  "AdaPipe",
+                     "version":  "1.0.0",
+                     "track":  "CraftifAI Physical AI Hackathon — Track A (PipeGen)",
+                     "use_case":  "door_person_count",
+                     "source_video":  "demo/sample_video.mp4",
+                     "generated_at":  "2026-10-18T22:00:20.3705443+05:30",
+                     "model_name":  "person_detector_entry",
+                     "tracking_method":  "spatial_iou_centroid_association",
+                     "directional_tracking_status":  "uncalibrated_line_crossing_omitted",
+                     "mqtt_publishing":  {
+                                             "enabled":  false,
+                                             "connected":  false,
+                                             "broker":  "localhost:1883",
+                                             "topic":  "adapipe/events/person_detection"
+                                         }
+                 },
+    "summary":  {
+                    "total_frames_processed":  300,
+                    "total_detection_events":  3000,
+                    "unique_entities_identified":  10,
+                    "class_distribution":  {
+                                               "person":  3000
+                                           },
+                    "mean_detection_confidence":  0.703,
+                    "spatial_zones_detected":  {
+                                                   "entryway_left":  900,
+                                                   "entryway_center":  900,
+                                                   "entryway_right":  1200
+                                               }
+                },
+    "unique_entities":  [
+                            {
+                                "tracking_id":  1,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.88,
+                                "primary_zone":  "entryway_left",
+                                "bounding_box_sample":  [
+                                                            0.2,
+                                                            0.1,
+                                                            0.85,
+                                                            0.25
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  2,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.84,
+                                "primary_zone":  "entryway_center",
+                                "bounding_box_sample":  [
+                                                            0.22,
+                                                            0.35,
+                                                            0.82,
+                                                            0.48
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  3,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.79,
+                                "primary_zone":  "entryway_right",
+                                "bounding_box_sample":  [
+                                                            0.25,
+                                                            0.6,
+                                                            0.86,
+                                                            0.72
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  4,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.76,
+                                "primary_zone":  "entryway_right",
+                                "bounding_box_sample":  [
+                                                            0.18,
+                                                            0.8,
+                                                            0.8,
+                                                            0.92
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  5,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.72,
+                                "primary_zone":  "entryway_left",
+                                "bounding_box_sample":  [
+                                                            0.24,
+                                                            0.22,
+                                                            0.84,
+                                                            0.36
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  6,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.68,
+                                "primary_zone":  "entryway_center",
+                                "bounding_box_sample":  [
+                                                            0.21,
+                                                            0.48,
+                                                            0.83,
+                                                            0.58
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  7,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.65,
+                                "primary_zone":  "entryway_right",
+                                "bounding_box_sample":  [
+                                                            0.26,
+                                                            0.7,
+                                                            0.85,
+                                                            0.82
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  8,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.61,
+                                "primary_zone":  "entryway_left",
+                                "bounding_box_sample":  [
+                                                            0.19,
+                                                            0.15,
+                                                            0.78,
+                                                            0.28
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  9,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.58,
+                                "primary_zone":  "entryway_center",
+                                "bounding_box_sample":  [
+                                                            0.23,
+                                                            0.4,
+                                                            0.81,
+                                                            0.5
+                                                        ]
+                            },
+                            {
+                                "tracking_id":  10,
+                                "object_class":  "person",
+                                "first_seen_frame":  0,
+                                "last_seen_frame":  299,
+                                "total_observations":  300,
+                                "mean_confidence":  0.52,
+                                "primary_zone":  "entryway_right",
+                                "bounding_box_sample":  [
+                                                            0.27,
+                                                            0.65,
+                                                            0.87,
+                                                            0.75
+                                                        ]
+                            }
+                        ],
+    "sample_events":  [
+                          {
+                              "event_id":  "evt_20261018_0000_t01_00",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.88,
+                              "bounding_box":  [
+                                                   0.2,
+                                                   0.1,
+                                                   0.85,
+                                                   0.25
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          128,
+                                                          144,
+                                                          320,
+                                                          612
+                                                      ],
+                              "tracking_id":  1,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_left",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t02_01",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.84,
+                              "bounding_box":  [
+                                                   0.22,
+                                                   0.35,
+                                                   0.82,
+                                                   0.48
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          448,
+                                                          158,
+                                                          614,
+                                                          590
+                                                      ],
+                              "tracking_id":  2,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_center",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t03_02",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.79,
+                              "bounding_box":  [
+                                                   0.25,
+                                                   0.6,
+                                                   0.86,
+                                                   0.72
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          768,
+                                                          180,
+                                                          922,
+                                                          619
+                                                      ],
+                              "tracking_id":  3,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_right",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t04_03",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.76,
+                              "bounding_box":  [
+                                                   0.18,
+                                                   0.8,
+                                                   0.8,
+                                                   0.92
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          1024,
+                                                          130,
+                                                          1178,
+                                                          576
+                                                      ],
+                              "tracking_id":  4,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_right",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t05_04",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.72,
+                              "bounding_box":  [
+                                                   0.24,
+                                                   0.22,
+                                                   0.84,
+                                                   0.36
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          282,
+                                                          173,
+                                                          461,
+                                                          605
+                                                      ],
+                              "tracking_id":  5,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_left",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t06_05",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.68,
+                              "bounding_box":  [
+                                                   0.21,
+                                                   0.48,
+                                                   0.83,
+                                                   0.58
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          614,
+                                                          151,
+                                                          742,
+                                                          598
+                                                      ],
+                              "tracking_id":  6,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_center",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t07_06",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.65,
+                              "bounding_box":  [
+                                                   0.26,
+                                                   0.7,
+                                                   0.85,
+                                                   0.82
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          896,
+                                                          187,
+                                                          1050,
+                                                          612
+                                                      ],
+                              "tracking_id":  7,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_right",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t08_07",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.61,
+                              "bounding_box":  [
+                                                   0.19,
+                                                   0.15,
+                                                   0.78,
+                                                   0.28
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          192,
+                                                          137,
+                                                          358,
+                                                          562
+                                                      ],
+                              "tracking_id":  8,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_left",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t09_08",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.58,
+                              "bounding_box":  [
+                                                   0.23,
+                                                   0.4,
+                                                   0.81,
+                                                   0.5
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          512,
+                                                          166,
+                                                          640,
+                                                          583
+                                                      ],
+                              "tracking_id":  9,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_center",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          },
+                          {
+                              "event_id":  "evt_20261018_0000_t10_09",
+                              "timestamp":  "2026-10-19T03:15:00.000Z",
+                              "frame_number":  0,
+                              "video_time_offset_sec":  0,
+                              "source":  "demo/sample_video.mp4",
+                              "event_type":  "person_detected",
+                              "object_class":  "person",
+                              "confidence":  0.52,
+                              "bounding_box":  [
+                                                   0.27,
+                                                   0.65,
+                                                   0.87,
+                                                   0.75
+                                               ],
+                              "bounding_box_pixels":  [
+                                                          832,
+                                                          194,
+                                                          960,
+                                                          626
+                                                      ],
+                              "tracking_id":  10,
+                              "is_new_entity":  true,
+                              "spatial_zone":  "entryway_right",
+                              "pipeline_metadata":  {
+                                                        "inference_interval":  1,
+                                                        "roi_mode":  "full_frame",
+                                                        "latency_ms":  34.88,
+                                                        "model_name":  "person_detector_entry"
+                                                    }
+                          }
+                      ]
+}
