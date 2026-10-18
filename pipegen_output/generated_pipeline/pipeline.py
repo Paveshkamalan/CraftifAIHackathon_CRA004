@@ -146,6 +146,8 @@ class PipeGenPipeline:
             "mean_confidence": mean_conf,
             "inference_interval": self.inference_interval,
             "roi_mode": self.roi_mode,
+            "detections": [dict(d) for d in self.last_detections],
+            "frame_shape": [int(frame.shape[0]), int(frame.shape[1])] if hasattr(frame, "shape") else [640, 640],
         }
 
     def run(
