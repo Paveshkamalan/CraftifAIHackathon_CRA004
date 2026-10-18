@@ -1,0 +1,40 @@
+{
+  "project": "AdaPipe",
+  "version": "1.0.0",
+  "use_case": "person_detection_entry",
+  "expected_evaluations": [
+    {
+      "candidate_id": "baseline",
+      "expected_slo_status": "SLO_MET_OR_UNMET",
+      "notes": "Every-frame native inference exhibits highest quality but higher latency."
+    },
+    {
+      "candidate_id": "balanced",
+      "expected_slo_status": "SLO_MET",
+      "notes": "Every-2nd frame at 960x540 balances low latency and high confidence."
+    },
+    {
+      "candidate_id": "fast",
+      "expected_slo_status": "SLO_MET",
+      "notes": "Every-3rd frame at 640x360 maximizes FPS with lowest latency."
+    }
+  ],
+  "expected_runtime_behavior": {
+    "standard_run": {
+      "selected_candidate": "balanced",
+      "adaptation_events_expected": 0
+    },
+    "high_load_run": {
+      "initial_configuration": "balanced",
+      "expected_event": "degrade_configuration",
+      "target_configuration": "fast",
+      "trigger_condition": "3 consecutive windows with p95_latency > 250ms"
+    },
+    "recovery_run": {
+      "initial_configuration": "fast",
+      "expected_event": "recover_configuration",
+      "target_configuration": "balanced",
+      "trigger_condition": "5 consecutive windows with p95_latency < 175ms (0.7 * 250ms)"
+    }
+  }
+}
