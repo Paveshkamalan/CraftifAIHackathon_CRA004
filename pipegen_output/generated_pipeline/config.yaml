@@ -1,0 +1,24 @@
+pipeline:
+  name: "pipegen_person_detector"
+  version: "1.0.0"
+  generated_by: "PipeGen v2.4 (Track A: PipeGen - CraftifAI Physical AI)"
+  target_platform: "NVIDIA DeepStream / ONNX Runtime / GStreamer"
+  framework: "DeepStream-6.3"
+  model:
+    name: "person_detector_entry"
+    type: "onnx"
+    input_shape: [1, 3, 640, 640]
+    classes: ["person"]
+    confidence_threshold: 0.40
+    nms_iou_threshold: 0.45
+  stream:
+    source_type: "file"
+    codec: "h264"
+    format: "RGB"
+  runtime_parameters:
+    inference_interval: 1
+    input_resolution: "native"
+    roi_mode: "full_frame"
+    batch_size: 1
+    gpu_id: 0
+    precision: "FP16"
