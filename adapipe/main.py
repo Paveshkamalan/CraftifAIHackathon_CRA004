@@ -22,6 +22,7 @@ from adapipe.selector import (
 from adapipe.runtime_policy import run_adaptive_pipeline
 from adapipe.report import generate_markdown_report
 from adapipe.ble_event_source import SimulatedBLEEventSource
+from adapipe.actionable_output import ActionableOutputCollector, generate_actionable_events_from_video
 
 
 def parse_args():
@@ -43,9 +44,9 @@ def parse_args():
     parser.add_argument(
         "--mode",
         type=str,
-        choices=["all", "benchmark", "select", "adaptive", "report", "ble"],
+        choices=["all", "benchmark", "select", "adaptive", "report", "ble", "actionable"],
         default="all",
-        help="Operational mode: all, benchmark, select, adaptive, report, ble (default: all)",
+        help="Operational mode: all, benchmark, select, adaptive, report, ble, actionable (default: all)",
     )
     parser.add_argument(
         "--duration",
@@ -64,6 +65,29 @@ def parse_args():
         type=str,
         default=None,
         help="Optional input video path override",
+    )
+    parser.add_argument(
+        "--mqtt",
+        action="store_true",
+        help="Enable optional MQTT publishing of actionable detection events",
+    )
+    parser.add_argument(
+        "--mqtt-host",
+        type=str,
+        default="localhost",
+        help="MQTT broker host (default: localhost)",
+    )
+    parser.add_argument(
+        "--mqtt-port",
+        type=int,
+        default=1883,
+        help="MQTT broker port (default: 1883)",
+    )
+    parser.add_argument(
+        "--mqtt-topic",
+        type=str,
+        default="adapipe/events/person_detection",
+        help="MQTT topic for publishing detection events (default: adapipe/events/person_detection)",
     )
     return parser.parse_args()
 
@@ -180,6 +204,48 @@ def main() -> int:
         print(f"\n[Demo Mode] Publishing Simulated ESP32 BLE Advertisements...")
         ble_source = SimulatedBLEEventSource()
         ble_source.listen(lambda evt: print(f"  [BLE RECV] {evt['device_id']} ({evt['zone']}): {evt['event_type']} | RSSI={evt['rssi_dbm']}dBm, Bat={evt['battery_mv']}mV"), max_events=5)
+
+    if args.mode in ["all", "actionable"]:
+        print(f"\n[Phase 8] Generating Actionable Detection Events (JSON & JSONL)...")
+        target_video = slo_cfg.get("use_case", {}).get("input_video", "demo/sample_video.mp4")
+        pipe_cfg_path = "pipegen_output/generated_pipeline/config.yaml"
+        pipe_model_path = "pipegen_output/generated_pipeline/model.onnx"
+
+        collector = ActionableOutputCollector(
+            source_id=target_video,
+            model_name="person_detector_entry",
+            mqtt_config={
+                "enabled": args.mqtt,
+                "host": args.mqtt_host,
+                "port": args.mqtt_port,
+                "topic": args.mqtt_topic,
+            },
+        )
+
+        from pipegen_output.generated_pipeline.pipeline import PipeGenPipeline
+        pipeline = PipeGenPipeline(
+            config_path=pipe_cfg_path,
+            model_path=pipe_model_path,
+            inference_interval=1,
+            resolution="native",
+        )
+
+        pipeline.run(
+            video_path=target_video,
+            duration_seconds=args.duration or 10.0,
+            warmup_seconds=args.warmup or 1.0,
+            callback=lambda m: collector.on_frame(m, fps=30.0),
+        )
+
+        json_out = collector.export_json("results/actionable_output.json")
+        jsonl_out = collector.export_jsonl("results/actionable_events.jsonl")
+        summary = collector.get_summary()
+        collector.close()
+
+        print(f"  Processed {summary['summary']['total_frames_processed']} frames -> {summary['summary']['total_detection_events']} detection events")
+        print(f"  Unique tracked entities: {summary['summary']['unique_entities_identified']}")
+        print(f"  Actionable JSON summary: {json_out}")
+        print(f"  Actionable JSONL stream: {jsonl_out}")
 
     print("\n=================================================================")
     print("  AdaPipe Execution Complete. Artifacts Ready.")
