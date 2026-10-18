@@ -1,0 +1,32 @@
+﻿=== ADAPIPE EXECUTION ENVIRONMENT PROBE ===
+Date/Time: 2026-10-18T21:26:51+05:30
+
+--- Operating System ---
+OS Caption: Microsoft Windows 11 Home Single Language
+OS Version: 10.0.26200
+OS Architecture: 64-bit
+Total Visible Memory: 7876.74 MB
+Free Physical Memory: 677.52 MB
+
+--- Processor ---
+Processor: 12th Gen Intel(R) Core(TM) i5-1235U
+Physical Cores: 10
+Logical Processors: 12
+
+--- Video Controllers ---
+Device: Intel(R) UHD Graphics
+Video Processor: Intel(R) UHD Graphics Family
+Driver Version: 32.0.101.7085
+Adapter RAM: 2048 MB
+Status: OK
+
+--- NVIDIA Tooling Probe ---
+nvidia-smi on PATH: NOT FOUND
+nvcc on PATH: NOT FOUND
+trtexec on PATH: NOT FOUND
+pipegen on PATH: NOT FOUND
+
+--- Environment Variables (CUDA/NVIDIA/TENSORRT) ---
+None found.
+
+=== END PROBE ===

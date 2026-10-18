@@ -1,0 +1,19 @@
+﻿=== TENSORRT ENGINE COMPILATION ATTEMPT ===
+Timestamp: 2026-10-18T21:27:07.6370000+05:30
+Target Model: pipegen_output/generated_pipeline/model.onnx
+Model Size: 21301 bytes
+Intended Precisions: FP32, FP16, INT8
+
+--- Step 1: Toolchain Verification ---
+ERROR: trtexec invocation failed: The term 'trtexec' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
+--- Step 2: NVIDIA Hardware & Driver Check ---
+ERROR: nvidia-smi invocation failed: The term 'nvidia-smi' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
+--- Step 3: Compilation Safety Guard ---
+NVIDIA GPU Hardware (CUDA Compute Capability >= 7.0) is REQUIRED for TensorRT compilation.
+Current Host Video Adapter: Intel(R) UHD Graphics (Intel UHD Graphics Family).
+No NVIDIA GPU, NVIDIA display driver, CUDA toolkit, or TensorRT runtime detected.
+STATUS: COMPILATION_HALTED_MISSING_PREREQUISITES
+Ethical / Technical Safety Rule Enforced: Compilation safely stopped per NFR-04/NFR-05.
+===========================================

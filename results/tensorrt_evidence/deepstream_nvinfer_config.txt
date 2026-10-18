@@ -1,0 +1,28 @@
+# ==============================================================================
+# PipeGen DeepStream Primary GIE (nvinfer) Configuration
+# Generated for: pipegen_person_detector (Track A: PipeGen - CraftifAI Hackathon)
+# Integrates with: results/tensorrt_evidence/model_fp16.engine
+# ==============================================================================
+
+[property]
+gpu-id=0
+net-scale-factor=0.003921569793422408
+model-color-format=0
+onnx-file=pipegen_output/generated_pipeline/model.onnx
+model-engine-file=results/tensorrt_evidence/model_fp16.engine
+labelfile-path=pipegen_output/generated_pipeline/labels.txt
+batch-size=1
+network-mode=2
+num-detected-classes=1
+interval=0
+gie-unique-id=1
+is-classifier=0
+maintain-aspect-ratio=1
+output-blob-names=boxes;scores;classes
+parse-bbox-func-name=NvDsInferParseCustomPipeGen
+custom-lib-path=pipegen_output/generated_pipeline/libnvdsparsebbox_pipegen.so
+
+[class-attrs-all]
+pre-cluster-threshold=0.40
+topk=10
+nms-iou-threshold=0.45
